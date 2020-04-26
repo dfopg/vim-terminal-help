@@ -171,7 +171,7 @@ function! TerminalOpen(...)
 			endif
 		endif
 		if has('nvim') == 0
-			exec pos . ' ' . height . 'split'
+			exec pos . ' ' . height . 'vsplit'
 			let opts = {'curwin':1, 'norestore':1, 'term_finish':'open'}
 			let opts.term_kill = get(g:, 'terminal_kill', 'term')
 			let opts.exit_cb = function('s:terminal_exit')
