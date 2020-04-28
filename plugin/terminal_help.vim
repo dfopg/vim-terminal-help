@@ -127,7 +127,7 @@ function! TerminalOpen(...)
 		if name != ''
 			let wid = bufwinnr(bid)
 			if wid < 0
-				exec pos . ' ' . height . 'split'
+				exec pos . ' ' . height . 'vsplit'
 				exec 'b '. bid
 				if mode() != 't'
 					if has('nvim')
@@ -180,7 +180,7 @@ function! TerminalOpen(...)
 			let jid = term_getjob(bid)
 			let b:__terminal_jid__ = jid
 		else
-			exec pos . ' ' . height . 'split'
+			exec pos . ' ' . height . 'vsplit'
 			exec 'enew'
 			let opts = {}
 			let opts.on_exit = function('s:terminal_exit')
@@ -515,7 +515,7 @@ function! s:SelectiveDrop(filename)
 		execute modifiable_wins[0] . 'wincmd w'
 		execute 'edit ' . escaped_filename
 	else
-		execute 'split ' . escaped_filename
+		execute 'vsplit ' . escaped_filename
 	endif
 endfunction
 
